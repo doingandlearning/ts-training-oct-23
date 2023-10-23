@@ -12,7 +12,7 @@ In this section, you'll practice exporting and importing a default value from a 
 5. Add another public method that logs the contents of `this.data`.
 6. Export DataStore as the default export of the module.
 7. In exercise1.ts, import the DataStore class from data.ts using a default import.
-8. Create a new instance of DataStore with a generic type of string.
+8. Create a new instance of DataStore with a generic type of string	.
 9. Call the add method on the instance with a string parameter. Confirm that you get an error if you try to use a different type. 
 10. Invoke the log method.
 11. Create a new instance of DataStore with a generic type of number.

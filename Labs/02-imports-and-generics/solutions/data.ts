@@ -1,15 +1,15 @@
-// // For exercise 1 and 4:
-// class DataStore<T> {
-//   private data: T[] = [];
-//   constructor() {}
-//   add(item: T): void {
-//     this.data.push(item);
-//   }
-//   log(): void {
-//     console.log(this.data);
-//   }
-// }
-// export default DataStore;
+// For exercise 1 and 4:
+class DataStore<T> {
+  private data: T[] = [];
+  constructor() {}
+  add(item: T): void {
+    this.data.push(item);
+  }
+  log(): void {
+    console.log(this.data);
+  }
+}
+export default DataStore;
 
 // For exercise 2:
 // export interface IDataStore<T> {
@@ -50,19 +50,19 @@
 // export { DataStore as Store };
 
 // For exercise 5
-export interface ICountable {
-  count: number;
-}
+// export interface ICountable {
+//   count: number;
+// }
 
-class DataStore<T extends ICountable> {
-  private data: T[] = [];
-  constructor() {}
-  add(item: T): void {
-    this.data.push(item);
-  }
-  getCount(): number {
-    return this.data.reduce((total, item) => total + item.count, 0);
-  }
-}
+// class DataStore<T extends ICountable> {
+//   private data: T[] = [];
+//   constructor() {}
+//   add(item: T): void {
+//     this.data.push(item);
+//   }
+//   getCount(): number {
+//     return this.data.reduce((total, item) => total + item.count, 0);
+//   }
+// }
 
-export default DataStore;
+// export default DataStore;
