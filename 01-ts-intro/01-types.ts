@@ -73,6 +73,10 @@
   names.push(121);
 
   // Tuple
+  // [userid, username, isAdmin]
+  // [number]  number[]
   let tupleArray: [number, string, boolean];
   tupleArray = [123, "one-two-three", Boolean()];
+
+  tupleArray[1].toUpperCase();
 }
