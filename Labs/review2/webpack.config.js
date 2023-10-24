@@ -24,5 +24,14 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, "src/index.html")
 		})
-	]
+	],
+	devServer: {
+		proxy: {
+			'/api': {
+				target: 'https://jsonplaceholder.typicode.com',
+				changeOrigin: true,
+				pathRewrite: { '^/api': '' },
+			},
+		},
+	},
 }

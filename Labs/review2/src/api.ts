@@ -1,4 +1,4 @@
-const BASE_URL = "https://jsonplaceholder.typicode.com";
+const BASE_URL = "/api";
 
 export async function fetchUsers(): Promise<User[]> {
   try {
