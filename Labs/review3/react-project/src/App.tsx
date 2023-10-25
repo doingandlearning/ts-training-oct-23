@@ -5,10 +5,8 @@ import SearchById from './components/SearchById';
 
 type QueryOptions = "query" | "id" | ""
 
-
 function App() {
   const [queryType, setQueryType] = useState<QueryOptions>("")
-
 
   return (
     <div className="App">
