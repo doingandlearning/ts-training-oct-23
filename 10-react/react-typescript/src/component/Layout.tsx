@@ -1,12 +1,12 @@
-import { FunctionComponent } from "react";
+import React from "react"
 
-interface Props {
-	children: React.ReactNode
+interface IProps {
+	title: string
 }
 
-export default function Layout({ children }: { children: React.ReactNode }): FunctionComponent<Props> {
+export default function Layout({ children, title }: React.PropsWithChildren<IProps>) {
 	return <>
-		<h1>This is a great application!</h1>
+		<h1>This is a great application! {title}</h1>
 		<div>
 			{children}
 		</div>
