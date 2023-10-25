@@ -34,10 +34,12 @@ type RequiredTaskFields = {
   assignedTo: NonNullable<User>;
 };
 
+type RequiredTaskFields1 = NonNullable<Task>;
+
 // Test:
 const task1: RequiredTaskFields = {
   title: "Test Task",
-  description: "This is a test",
+  description: "Important task",
   dueDate: new Date(),
   assignedTo: { name: "John", role: "regular user" }, // This should compile without errors
 };
