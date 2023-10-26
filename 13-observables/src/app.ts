@@ -55,3 +55,121 @@ keyStream$
 
 // TODO: Write the async and promise versions of the above!
 // .then().then().then()
+
+// Promise version (without debounce)
+
+// const sendRequestPromise = (arr: string[], query: string) => {
+//   return new Promise<string[]>((resolve) => {
+//     const result = arr.filter((item) => query.length > 0 && item.includes(query));
+//     resolve(result);
+//   });
+// };
+
+// searchBox.addEventListener('keyup', () => {
+//   const query = searchBox.value;
+//   sendRequestPromise(testData, query)
+//     .then(resultsArray => {
+//       if (query.length > 0) {
+//         cleanUpUtil(results);
+//         cleanUpUtil(errorDisplay);
+//         appendResults(results, resultsArray);
+//       } else {
+//         cleanUpUtil(results);
+//       }
+//     })
+//     .catch(error => {
+//       errorDisplay.innerText = "Something went wrong!";
+//     });
+// });
+
+// Async/Await without debounce
+
+// const sendRequestAsync = async (arr: string[], query: string) => {
+//   return new Promise<string[]>((resolve) => {
+//     const result = arr.filter((item) => query.length > 0 && item.includes(query));
+//     resolve(result);
+//   });
+// };
+
+// searchBox.addEventListener('keyup', async () => {
+//   try {
+//     const query = searchBox.value;
+//     if (query.length > 0) {
+//       const resultsArray = await sendRequestAsync(testData, query);
+//       cleanUpUtil(results);
+//       cleanUpUtil(errorDisplay);
+//       appendResults(results, resultsArray);
+//     } else {
+//       cleanUpUtil(results);
+//     }
+//   } catch (error) {
+//     errorDisplay.innerText = "Something went wrong!";
+//   }
+// });
+
+// Debounce with setTimeout/clearTimeout
+
+// let debounceTimer: any = null;
+
+// searchBox.addEventListener('keyup', () => {
+//   clearTimeout(debounceTimer);
+
+//   debounceTimer = setTimeout(async () => {
+//     try {
+//       const query = searchBox.value;
+//       if (query.length > 0) {
+//         const resultsArray = await sendRequestAsync(testData, query);
+//         cleanUpUtil(results);
+//         cleanUpUtil(errorDisplay);
+//         appendResults(results, resultsArray);
+//       } else {
+//         cleanUpUtil(results);
+//       }
+//     } catch (error) {
+//       errorDisplay.innerText = "Something went wrong!";
+//     }
+//   }, 500); // 500ms debounce time
+// });
+
+// Debounce with AbortController
+
+// let debounceTimer: any = null;
+// let controller: AbortController | null = null;
+
+// const sendFetchRequest = async (arr: string[], query: string) => {
+//   if (controller) {
+//     controller.abort();
+//   }
+
+//   controller = new AbortController();
+//   const signal = controller.signal;
+
+//   // This is just an example. Your actual fetch URL and options will vary.
+//   const response = await fetch(`yourSearchURL?q=${query}`, { signal });
+//   const data = await response.json();
+
+//   // Process the fetched data and return a filtered list.
+//   return data.filter((item: string) => item.includes(query));
+// };
+
+// searchBox.addEventListener('keyup', () => {
+//   clearTimeout(debounceTimer);
+
+//   debounceTimer = setTimeout(async () => {
+//     try {
+//       const query = searchBox.value;
+//       if (query.length > 0) {
+//         const resultsArray = await sendFetchRequest(testData, query);
+//         cleanUpUtil(results);
+//         cleanUpUtil(errorDisplay);
+//         appendResults(results, resultsArray);
+//       } else {
+//         cleanUpUtil(results);
+//       }
+//     } catch (error) {
+//       if (error.name !== 'AbortError') {
+//         errorDisplay.innerText = "Something went wrong!";
+//       }
+//     }
+//   }, 500); // 500ms debounce time
+// });
